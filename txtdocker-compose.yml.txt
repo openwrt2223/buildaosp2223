@@ -4,41 +4,35 @@
 # ==============================================================================
 version: "3"
 networks: 
-  aosp-bridge:
+  ovms-bridge:
     driver: bridge
 services: 
-  aosp-server:
-    build: .
-    hostname: aosp-server
+  ovms-server:
+    image: jkalapati/ovms-server
+    hostname: ovms-server
     ports: 
-      - "80"
-      - "443"
-      - "22"
+      - "9000:9000"
+      - "9001:9001"
     expose: 
-      - "80"
-      - "443"
-      - "22"
+      - "9000"
     networks: 
-      - aosp-bridge
-    privileged: 
-      true
+      - ovms-bridge
+    command: [--port=9000, --model_name=face-detection, --model_path=/models, --shape=auto]
     tty: 
       true
       
-  aosp-client: 
-    image: lbrdevhub/ubuntu:20.04
+  ovms-client: 
+    image: jkalapati/ovms-client
     environment: 
-      SERVER_NAME: aosp-server
-      GRPC_PORT: 22
+      SERVER_NAME: ovms-server
+      GRPC_PORT: 9000
     ports:
-      - "22"
+      - "8000:8000"
     networks: 
-      - aosp-bridge
+      - ovms-bridge
     depends_on:
-      - aosp-server
+      - ovms-server
     links: 
-      - aosp-server
-    privileged: 
-      true
+      - ovms-server
     tty:
       true

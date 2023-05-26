@@ -1,4 +1,2 @@
-# docker-compose-import
+# buildaosp2223
 
-**To run OVMS:**
-docker-compose up
