@@ -29,6 +29,8 @@ echo 'ubuntu:ubuntu' | chpasswd
 hostname kccpdtsn1
 echo '127.0.0.1 kccpdtsn1' >> /etc/hosts
 echo '::1 kccpdtsn1' >> /etc/hosts
+dpkg --add-architecture i386
+apt install curl python python3 git libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-dev g++-multilib flex bison gperf build-essential libncurses5 libncurses5:i386 libncurses5-dev:i386 tofrodos python-markdown python3-markdown libxml2-utils xsltproc zlib1g-dev:i386 dpkg-dev libsdl1.2-dev git-core gnupg zip zlib1g-dev gcc-multilib libc6-dev-i386 x11proto-core-dev libx11-dev unzip m4 lib32z-dev ccache libssl-dev lib32ncurses5-dev -y
 mkdir -p /var/run/sshd
 service ssh start
 df -h
