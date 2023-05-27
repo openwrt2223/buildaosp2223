@@ -12,19 +12,11 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt autoremove -y \
     && apt install tor -y \
     && apt install i2pd -y \
-    && apt install wireguard -y \
-    && apt install bmon -y \
     && apt install iperf3 -y \
-    && apt install sqlite -y \
-    && apt install mysql-server -y \
-    && apt install mysql-client -y \
-    && apt install libmysqlclient-dev -y \
     && apt install busybox -y \
     && apt install python2 -y \
     && apt install python3 -y \
     && apt install nodejs -y \
-    && apt install clang -y \
-    && apt install golang -y \
     && apt install build-essential -y \
     && apt install qemu-system -y \
     && apt install inetutils-ping -y \
@@ -37,8 +29,6 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && apt install socat -y \
     && apt install curlftpfs -y \
     && apt install u-boot-tools -y \
-    && apt install linux-image-generic -y \
-    && apt install kmod -y \
     && apt clean -y \
     && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/* \
     && sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config \

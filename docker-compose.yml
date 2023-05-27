@@ -11,17 +11,17 @@ services:
     build: .
     hostname: aosp-server
     ports: 
-      - "80"
-      - "443"
-      - "22"
+      - "80:80"
+      - "443:443"
+      - "22:22"
     expose: 
       - "80"
       - "443"
       - "22"
     networks: 
       - aosp-bridge
-    privileged: 
-      true
+    cap_add: 
+      - ALL
     tty: 
       true
       
@@ -31,14 +31,14 @@ services:
       SERVER_NAME: aosp-server
       GRPC_PORT: 22
     ports:
-      - "22"
+      - "2222:22"
     networks: 
       - aosp-bridge
     depends_on:
       - aosp-server
     links: 
       - aosp-server
-    privileged: 
-      true
+    cap_add: 
+      - ALL
     tty:
       true
