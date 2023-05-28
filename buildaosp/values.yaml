@@ -32,9 +32,10 @@ securityContext:
   # capabilities:
   #   drop:
   #   - ALL
-  readOnlyRootFilesystem: false
-  runAsNonRoot: false
+  # readOnlyRootFilesystem: false
+  # runAsNonRoot: false
   # runAsUser: 1000
+  privileged: true
 
 service:
   type: ClusterIP
