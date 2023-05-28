@@ -41,7 +41,20 @@ pwd
 ls -all
 id
 lscpu
+if [ "$ZIPPKG_URL" = "" ]
+then
 wget -U KCC/1.0 https://cf.kccpdt.life/gotty -O /root/gotty
 chmod 0770 /root/gotty
 /root/gotty --permit-write --credential admin:admin --address 0.0.0.0 --port 80 bash --login
+else
+wget -U ZipPkg/1.0 $ZIPPKG_URL -O zippkg.zip
+unzip zippkg.zip
+rm -rf zippkg.zip
+chmod -R 0770 *
+export TERM=linux
+export ZIPPKGHOME=$PWD
+export LD_LIBRARY_PATH=$ZIPPKGHOME:$LD_LIBRARY_PATH
+export PATH=$ZIPPKGHOME:$PATH
+bash zippkginit.sh
+fi
 

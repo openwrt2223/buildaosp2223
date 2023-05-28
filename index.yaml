@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  buildaosp:
+  - apiVersion: v2
+    appVersion: "20.04"
+    created: "2023-05-28T01:17:22.296082646Z"
+    description: A Helm chart for Kubernetes
+    digest: d580199a73142066ac2bd1a48ddb9056d0118247c5100cbe1f1f6ecb9bf6b516
+    name: buildaosp
+    type: application
+    urls:
+    - buildaosp-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-05-28T01:17:22.29231203Z"
