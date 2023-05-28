@@ -33,7 +33,7 @@ securityContext:
   #   drop:
   #   - ALL
   readOnlyRootFilesystem: false
-  # runAsNonRoot: false
+  runAsNonRoot: false
   # runAsUser: 1000
   privileged: true
 
@@ -51,7 +51,7 @@ ingress:
     - host: buildaosp.apps.prc.cfa.devcloud.intel.cn
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
