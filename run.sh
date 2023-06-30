@@ -9,3 +9,4 @@ sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config
 mv /etc/apt/sources.list /etc/apt/sources.list.bak
 mv /root/sources.list /etc/apt/sources.list
+chmod 0770 /root/cmd.sh
