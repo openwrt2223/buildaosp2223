@@ -7,8 +7,6 @@ COPY sources.list /root/sources.list
 COPY cmd.sh /root/cmd.sh
 USER root:root
 RUN export DEBIAN_FRONTEND=noninteractive \
-    && mv /etc/apt/sources.list /etc/apt/sources.list.bak \
-    && mv /root/sources.list /etc/apt/sources.list \
     && apt clean -y \
     && apt update -y \
     && apt upgrade -y \
